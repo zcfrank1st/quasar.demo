@@ -1,9 +1,7 @@
 package com.chaos.async.demo
 
-import java.util.concurrent.TimeUnit
-
+import scala.concurrent.Await
 import scala.concurrent.duration.Duration
-import scala.concurrent.{Await, Future}
 
 /**
   * Created by zcfrank1st on 18/02/2017.
@@ -27,7 +25,7 @@ object Main {
       if (await(f1)) await(f2) else 0
     }
 
-    println(Await.result(future, Duration(10, TimeUnit.MINUTES)))
+    println(Await.result(future, Duration.Inf))
 
   }
 }
