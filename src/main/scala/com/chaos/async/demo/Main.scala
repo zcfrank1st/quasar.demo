@@ -28,12 +28,18 @@ object Main {
     println(Await.result(future, Duration.Inf))
 
 
-    val t = for {
-      a <- Some(1)
-      b <- Some(2)
-    } yield {
-      true
+    val future1 = Future {
+      Thread.sleep(5000L)
+      1
     }
+
+    val future2 = Future {
+      1
+    }
+
+    val futureList = List(future1, future2)
+
+    println(Await.result(Future.sequence(futureList), Duration.Inf))
 
   }
 }
