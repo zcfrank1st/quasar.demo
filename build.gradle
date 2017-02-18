@@ -2,6 +2,7 @@ group 'com.chaos'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
@@ -16,6 +17,9 @@ configurations {
 }
 
 dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.scala-lang.modules:scala-async_2.11:0.9.6'
+
     compile "co.paralleluniverse:quasar-core:0.7.7:jdk8"
     quasar  "co.paralleluniverse:quasar-core:0.7.7:jdk8@jar"
     testCompile group: 'junit', name: 'junit', version: '4.11'
