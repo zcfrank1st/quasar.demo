@@ -1,6 +1,6 @@
 package com.chaos.async.demo
 
-import scala.concurrent.Await
+import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.Duration
 
 /**
@@ -26,6 +26,14 @@ object Main {
     }
 
     println(Await.result(future, Duration.Inf))
+
+
+    val t = for {
+      a <- Some(1)
+      b <- Some(2)
+    } yield {
+      true
+    }
 
   }
 }
